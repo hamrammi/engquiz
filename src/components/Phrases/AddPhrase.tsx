@@ -26,7 +26,7 @@ const AddPhrase: React.FC = () => {
       <Title><span className="text">Add phrase</span></Title>
       <form onSubmit={e => { e.preventDefault(); onSubmit() }}>
         <InputBlock>
-          <InputLabel htmlFor="eng">🇺🇸 English</InputLabel>
+          <InputLabel htmlFor="eng"><span role="img" aria-label="Eng">🇺🇸</span> English</InputLabel>
           <Input
             type="text"
             value={eng}
@@ -35,7 +35,7 @@ const AddPhrase: React.FC = () => {
           />
         </InputBlock>
         <InputBlock>
-          <InputLabel htmlFor="rus">🇷🇺 Russian</InputLabel>
+          <InputLabel htmlFor="rus"><span role="img" aria-label="Rus">🇷🇺</span> Russian</InputLabel>
           <Input
             type="text"
             value={rus}

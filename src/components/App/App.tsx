@@ -9,7 +9,7 @@ import { TopNav, TopNavLink } from './styles'
 let App: React.FC
 App = function () {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/apps/engquiz">
       <TopNav>
         <TopNavLink to="/add">Add Phrase</TopNavLink>
         <TopNavLink to="/">List Phrases</TopNavLink>

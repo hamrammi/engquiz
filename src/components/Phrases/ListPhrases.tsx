@@ -31,7 +31,7 @@ const ListPhrases: React.FC = () => {
     <Container>
       <Title>Phrases</Title>
       <InputBlock>
-        <InputLabel htmlFor="eng">🇺🇸 English</InputLabel>
+        <InputLabel htmlFor="eng"><span role="img" aria-label="Eng">🇺🇸</span> English</InputLabel>
         <Input
           type="text"
           value={searchText}
