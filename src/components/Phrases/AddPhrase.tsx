@@ -1,18 +1,36 @@
 import React, { useState } from 'react'
 import { database } from '../../firebase'
-import { Container, Input, Title, InputBlock, InputLabel, Button, ButtonContainer } from './styles'
+import {
+  Container,
+  Input,
+  Title,
+  InputBlock,
+  InputLabel,
+  Button,
+  ButtonContainer,
+  ErrorAlert,
+  SuccessAlert
+} from './styles'
 
 const AddPhrase: React.FC = () => {
   const [eng, setEng] = useState<string>('')
   const [rus, setRus] = useState('')
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  const [successMessage, setSuccessMessage] = useState<string>('')
 
   function onSubmit () {
+    if (eng === '' || rus === '') {
+      setErrorMessage(`Fields can't be blank`)
+      setTimeout(() => setErrorMessage(''), 2000)
+      return
+    }
     database.collection('phrases').add({
       eng,
       rus
     })
       .then(docRef => {
-        alert('New ID: ' + docRef.id)
+        setSuccessMessage(`New ID: ${docRef.id}`)
+        setTimeout(() => setSuccessMessage(''), 2000)
         setEng('')
         setRus('')
       })
@@ -24,6 +42,8 @@ const AddPhrase: React.FC = () => {
   return (
     <Container>
       <Title><span className="text">Add phrase</span></Title>
+      {errorMessage ? <ErrorAlert>{errorMessage}</ErrorAlert> : null}
+      {successMessage ? <SuccessAlert>{successMessage}</SuccessAlert> : null}
       <form onSubmit={e => { e.preventDefault(); onSubmit() }}>
         <InputBlock>
           <InputLabel htmlFor="eng"><span role="img" aria-label="Eng">🇺🇸</span> English</InputLabel>

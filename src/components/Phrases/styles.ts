@@ -86,3 +86,33 @@ export const PhrasesContainer = styled('div')`
     padding-left: .5rem;
   }
 `
+
+const Alert = styled('div')`
+  padding: 1rem;
+  color: white;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  width: 50%;
+  text-align: center;
+  /* visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+  
+  &.--isVisible {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  */
+`
+
+export const ErrorAlert = styled(Alert)`
+  background-color: #db7093ab;
+  border: 2px solid palevioletred;
+`
+
+export const SuccessAlert = styled(Alert)`
+  background-color: lightgreen;
+  border: 2px solid darkseagreen;
+  color: green;
+`
